@@ -12,6 +12,12 @@ My personal OpenCode global configuration with custom agents and commands for en
   - **Performance Agent** - Performance bottleneck identification  
   - **Codebase Analyzer** - Comprehensive project analysis and documentation
   - **Review Agent** - General code review focusing on correctness and maintainability
+- **Testing Skills** (Implementing ["Testing with AI" Article](https://ridakaddir.com/blog/post/testing-with-ai-smarter-coverage-faster-feedback)):
+  - **Adversarial Testing** - Edge case generation that finds scenarios developers miss
+  - **Coverage-Driven Testing** - Precision testing targeting specific uncovered lines
+  - **Mock Generation** - Jest/Go mocks with deep mockr integration for HTTP-level API mocking
+  - **Integration Testing** - Complete test scaffolding with database setup and environment configuration
+  - **Test-Driven Development** - Test-first workflow with AI-generated specifications
 - **Review Skills**:
   - **Security Review** - Security-focused analysis with threat modeling
   - **Review Preparation** - Comprehensive review prep and checklist generation
@@ -165,6 +171,13 @@ Once configured, these agents and commands are available globally in OpenCode:
 # Comprehensive project analysis
 /analyze-project
 
+# Testing Skills (Implementing your testing article)
+!skill testing-adversarial "validatePaymentAmount function --security --performance"
+!skill testing-coverage "--file src/service.ts --lines 45-52,78-84"
+!skill testing-mocks "UserRepository, EmailService --include-mockr"
+!skill testing-integration "user authentication flow --include-mockr"
+!skill testing-tdd "rate limiter for API endpoints"
+
 # Enhanced file review with multi-agent analysis
 !skill review-file-enhanced "src/auth/login.ts"
 
@@ -205,6 +218,29 @@ Once configured, these agents and commands are available globally in OpenCode:
 /start-work
 # → Choose "current" when prompted
 # → Or work on existing feature branch
+```
+
+### Testing Workflow (Your Article Implementation)
+```bash
+# 1. Test-Driven Development - Start with tests
+!skill testing-tdd "user authentication with JWT and role permissions"
+# → Generates comprehensive test specification before implementation
+
+# 2. Adversarial Testing - Find edge cases developers miss
+!skill testing-adversarial "loginUser function --security --performance" 
+# → Generates 20+ edge cases including injection attempts, race conditions
+
+# 3. Coverage-Driven Testing - Target specific gaps
+!skill testing-coverage "--file src/auth.ts --lines 67-89"
+# → Generates tests for exact uncovered lines from coverage report
+
+# 4. Mock Generation with Mockr Integration
+!skill testing-mocks "AuthService, EmailService --include-mockr"
+# → Generates Jest mocks AND mockr HTTP-level configurations
+
+# 5. Complete Integration Testing
+!skill testing-integration "authentication flow --include-mockr"
+# → Full integration test setup with database and external service mocking
 ```
 
 ### Enhanced Review Workflow
