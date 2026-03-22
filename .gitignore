@@ -18,6 +18,11 @@
 !prompts/
 !prompts/*.txt
 
+# Include skill configurations
+!skills/
+!skills/*/
+!skills/*/SKILL.md
+
 # Include package configuration
 !package.json
 

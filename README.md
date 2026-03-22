@@ -5,9 +5,21 @@ My personal OpenCode global configuration with custom agents and commands for en
 ## Features
 
 - **Automatic Branch Management**: OpenCode automatically creates feature branches for development work
-- **Review Agent**: Senior-level code review focusing on correctness, security, and maintainability
+- **Enhanced Review System**: Multi-agent code review with security, performance, and architecture analysis
+- **Comprehensive Analysis**: Full codebase analysis with documentation generation and issue reporting
+- **Review Agents**: 
+  - **Security Agent** - Deep security vulnerability analysis
+  - **Performance Agent** - Performance bottleneck identification  
+  - **Codebase Analyzer** - Comprehensive project analysis and documentation
+  - **Review Agent** - General code review focusing on correctness and maintainability
+- **Review Skills**:
+  - **Security Review** - Security-focused analysis with threat modeling
+  - **Review Preparation** - Comprehensive review prep and checklist generation
+  - **Enhanced File Review** - Multi-agent coordinated file analysis
 - **Custom Commands**: 
   - `/start-work` - Begin development with automatic branch creation
+  - `/security-scan` - Quick security vulnerability scan
+  - `/analyze-project` - Comprehensive project analysis
   - `/check-file` - Review specific files for issues
   - `/pr-summary` - Generate PR descriptions from branch diff
   - `/review-changes` - Analyze recent git changes
@@ -84,6 +96,37 @@ Begin development work with automatic branch creation and management.
 - Type "main" to work directly on main (not recommended)
 - Use `--no-branch` flag to skip branch creation
 
+#### `/security-scan [target]`
+Quick security vulnerability scan with immediate feedback.
+
+**Features:**
+- Scans for hardcoded secrets and credentials
+- Detects common XSS and SQL injection patterns
+- Checks for insecure dependencies
+- Reviews environment configuration
+- Provides quick remediation guidance
+
+**Usage:**
+```bash
+/security-scan
+/security-scan src/auth/
+```
+
+#### `/analyze-project [target]`  
+Comprehensive project analysis with documentation generation.
+
+**Features:**
+- Complete architecture analysis
+- Quality assessment with detailed findings
+- Documentation generation (ARCHITECTURE.md, SETUP.md, etc.)
+- Prioritized improvement roadmap
+- Integration with security and performance agents
+
+**Analysis Depths:**
+- **Quick** (5-10 min) - Overview and critical issues
+- **Standard** (20-30 min) - Complete analysis with documentation
+- **Deep** (45-60 min) - Exhaustive review with refactoring roadmap
+
 #### `/check-file <file-path>`
 Review a specific file for issues and improvements.
 
@@ -116,6 +159,21 @@ Once configured, these agents and commands are available globally in OpenCode:
 # Start development work (recommended first step)
 /start-work
 
+# Quick security scan
+/security-scan
+
+# Comprehensive project analysis
+/analyze-project
+
+# Enhanced file review with multi-agent analysis
+!skill review-file-enhanced "src/auth/login.ts"
+
+# Security-focused review with threat modeling
+!skill review-security "src/api/users.go --focus authorization"
+
+# Review preparation with automated checklists
+!skill review-preparation "current branch --comprehensive"
+
 # Review a specific file
 /check-file src/components/UserAuth.tsx
 
@@ -147,6 +205,29 @@ Once configured, these agents and commands are available globally in OpenCode:
 /start-work
 # → Choose "current" when prompted
 # → Or work on existing feature branch
+```
+
+### Enhanced Review Workflow
+```bash
+# 1. Prepare comprehensive review
+!skill review-preparation "feature/user-auth"
+# → Generates review checklist and impact analysis
+
+# 2. Security-focused analysis  
+!skill review-security "src/auth/ --comprehensive"
+# → Deep security vulnerability assessment
+
+# 3. Multi-agent file review
+!skill review-file-enhanced "src/auth/jwt.ts --all-agents" 
+# → Security + Performance + Architecture analysis
+
+# 4. Full project analysis
+/analyze-project
+# → Complete codebase documentation and improvement roadmap
+
+# 5. Quick security scan
+/security-scan
+# → Rapid vulnerability detection
 ```
 
 ## Project Structure
