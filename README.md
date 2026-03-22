@@ -4,8 +4,10 @@ My personal OpenCode global configuration with custom agents and commands for en
 
 ## Features
 
+- **Automatic Branch Management**: OpenCode automatically creates feature branches for development work
 - **Review Agent**: Senior-level code review focusing on correctness, security, and maintainability
 - **Custom Commands**: 
+  - `/start-work` - Begin development with automatic branch creation
   - `/check-file` - Review specific files for issues
   - `/pr-summary` - Generate PR descriptions from branch diff
   - `/review-changes` - Analyze recent git changes
@@ -53,6 +55,35 @@ My personal OpenCode global configuration with custom agents and commands for en
 
 ### Commands
 
+#### `/start-work`
+Begin development work with automatic branch creation and management.
+
+**Features:**
+- Automatically detects if you're on main/master branch
+- Suggests appropriate branch names based on work type
+- Provides clear opt-out options for working on current branch
+- Handles dirty working tree scenarios
+
+**Usage:**
+```bash
+/start-work
+# Follow the prompts to describe your work
+# Example: "user authentication" → feature/20260322-user-authentication
+```
+
+**Branch Types:**
+- `feature/` - New functionality, testing, development
+- `fix/` - Bug fixes and patches
+- `review/` - Code review and analysis work
+- `poc/` - Proof of concept and experiments
+- `docs/` - Documentation updates
+- `refactor/` - Code restructuring
+
+**Opt-out Options:**
+- Type "current" to continue on current branch
+- Type "main" to work directly on main (not recommended)
+- Use `--no-branch` flag to skip branch creation
+
 #### `/check-file <file-path>`
 Review a specific file for issues and improvements.
 
@@ -82,6 +113,9 @@ Analyze recent commits and flag potential issues before opening a PR.
 Once configured, these agents and commands are available globally in OpenCode:
 
 ```bash
+# Start development work (recommended first step)
+/start-work
+
 # Review a specific file
 /check-file src/components/UserAuth.tsx
 
@@ -92,19 +126,71 @@ Once configured, these agents and commands are available globally in OpenCode:
 /review-changes
 ```
 
+## Workflow Examples
+
+### Starting New Work
+```bash
+# 1. Begin development with branch management
+/start-work
+# → Detects you're on main, suggests: feature/20260322-user-auth
+
+# 2. Continue with development
+# OpenCode will automatically use the new branch for all work
+
+# 3. When ready, create PR
+/pr-summary
+```
+
+### Working on Current Branch
+```bash
+# Skip branch creation when needed
+/start-work
+# → Choose "current" when prompted
+# → Or work on existing feature branch
+```
+
 ## Project Structure
 
 ```
 ├── agents/
-│   └── review.md           # Code review agent configuration
+│   └── review.md                   # Code review agent configuration
 ├── commands/
-│   ├── check-file.md       # File review command
-│   ├── pr-summary.md       # PR description generator
-│   └── review-changes.md   # Change analysis command
-├── opencode.example.json   # Configuration template
-├── package.json           # Dependencies
-└── README.md              # This file
+│   ├── check-file.md              # File review command
+│   ├── pr-summary.md              # PR description generator
+│   ├── review-changes.md          # Change analysis command
+│   └── start-work.md              # Branch management command
+├── prompts/
+│   └── build-with-auto-branch.txt # Build agent prompt for branch automation
+├── opencode.example.json          # Configuration template
+├── package.json                   # Dependencies
+└── README.md                      # This file
 ```
+
+## Branch Management
+
+This configuration includes automatic git branch management:
+
+### How It Works
+- **Build Agent**: Automatically checks branch status before development work
+- **Smart Detection**: Identifies when you're on main/master and suggests branching
+- **Opt-out Support**: Always provides options to continue on current branch
+- **Consistent Naming**: Uses date-based naming for clear organization
+
+### Branch Naming Convention
+```bash
+feature/YYYYMMDD-description    # New features and development
+fix/YYYYMMDD-description        # Bug fixes
+review/YYYYMMDD-description     # Code review work  
+poc/YYYYMMDD-description        # Proof of concepts
+docs/YYYYMMDD-description       # Documentation updates
+refactor/YYYYMMDD-description   # Code restructuring
+```
+
+### Configuration
+The automatic branching is configured through:
+- Enhanced `opencode.json` with git branch permissions
+- Custom build agent prompt in `prompts/build-with-auto-branch.txt`
+- `/start-work` command for explicit branch management
 
 ## Requirements
 
