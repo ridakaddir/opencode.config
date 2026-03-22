@@ -6,13 +6,18 @@ permission:
   edit: deny
   bash:
     "*": ask
-    "git diff*": allow
-    "git log*": allow
-    "git status": allow
-    "grep -r*": allow
-    "find . -name*": allow
-    "npm audit*": allow
-    "go list*": allow
+    "git*": allow
+    "grep*": allow
+    "find*": allow
+    "npm*": allow
+    "go*": allow
+    "cat*": allow
+    "head*": allow
+    "tail*": allow
+    "ls*": allow
+    "wc*": allow
+    "sort*": allow
+    "uniq*": allow
 ---
 
 You are a senior security engineer conducting a comprehensive code security review.

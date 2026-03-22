@@ -6,14 +6,19 @@ permission:
   edit: deny
   bash:
     "*": ask
-    "git diff*": allow
-    "git log*": allow
-    "git status": allow
-    "npm list*": allow
-    "go mod graph": allow
-    "find . -name*": allow
-    "grep -r*": allow
-    "wc -l*": allow
+    "git*": allow
+    "npm*": allow
+    "go*": allow
+    "find*": allow
+    "grep*": allow
+    "cat*": allow
+    "head*": allow
+    "tail*": allow
+    "ls*": allow
+    "wc*": allow
+    "sort*": allow
+    "uniq*": allow
+    "awk*": allow
 ---
 
 You are a senior performance engineer specializing in web application optimization and scalability analysis.

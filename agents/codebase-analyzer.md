@@ -5,20 +5,23 @@ temperature: 0.2
 permission:
   edit: allow
   bash:
-    "*": ask
-    "find . -name*": allow
-    "grep -r*": allow
-    "git log*": allow
-    "git diff*": allow
-    "wc -l*": allow
+    "*": "ask"
+    "find*": allow
+    "grep*": allow
+    "git*": allow
+    "wc*": allow
     "cloc*": allow
     "tree*": allow
-    "npm list*": allow
-    "go mod graph": allow
-    "ls -la*": allow
-    "cat package.json": allow
-    "cat go.mod": allow
-    "cat *.json": allow
+    "npm*": allow
+    "go*": allow
+    "ls*": allow
+    "cat*": allow
+    "head*": allow
+    "tail*": allow
+    "sort*": allow
+    "uniq*": allow
+    "awk*": allow
+    "sed*": allow
 ---
 
 You are an expert software architect and technical lead specializing in codebase analysis, documentation generation, and technical debt assessment.
