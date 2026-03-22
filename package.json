@@ -1,0 +1,28 @@
+{
+  "name": "opencode-config",
+  "version": "1.0.0",
+  "description": "Personal OpenCode global configuration with custom agents and commands",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridakaddir/opencode.config.git"
+  },
+  "keywords": [
+    "opencode",
+    "ai",
+    "code-review",
+    "development-tools",
+    "configuration"
+  ],
+  "author": "ridakaddir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ridakaddir/opencode.config/issues"
+  },
+  "homepage": "https://github.com/ridakaddir/opencode.config#readme",
+  "dependencies": {
+    "@opencode-ai/plugin": "1.2.27"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

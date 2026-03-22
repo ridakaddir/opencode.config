@@ -1,0 +1,31 @@
+# Ignore everything by default
+*
+
+# Explicitly include files we want to track
+!README.md
+!LICENSE
+!.gitignore
+
+# Include agent configurations
+!agents/
+!agents/*.md
+
+# Include command configurations  
+!commands/
+!commands/*.md
+
+# Include package configuration
+!package.json
+
+# Include example configuration (sanitized)
+!opencode.example.json
+
+# Never include these sensitive files (extra protection)
+opencode.json
+*.key
+*.secret
+.env
+.env.*
+node_modules/
+bun.lock
+.DS_Store
