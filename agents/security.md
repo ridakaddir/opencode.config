@@ -5,12 +5,16 @@ temperature: 0.1
 permission:
   edit: deny
   bash:
-    "*": ask
-    "git*": allow
+    "*": deny
+    "git status": allow
+    "git log*": allow
+    "git diff*": allow
+    "git branch --show-current": allow
     "grep*": allow
     "find*": allow
-    "npm*": allow
-    "go*": allow
+    "npm audit*": allow
+    "npm list*": allow
+    "go list*": allow
     "cat*": allow
     "head*": allow
     "tail*": allow

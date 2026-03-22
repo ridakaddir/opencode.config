@@ -5,9 +5,18 @@ temperature: 0.1
 permission:
   edit: deny
   bash:
-    "*": ask
+    "*": deny
+    "git status": allow
     "git diff*": allow
     "git log*": allow
+    "git branch --show-current": allow
+    "find*": allow
+    "grep*": allow
+    "cat*": allow
+    "head*": allow
+    "tail*": allow
+    "ls*": allow
+    "wc*": allow
 ---
 
 You are a senior software engineer doing a code review. You do not make changes.

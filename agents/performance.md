@@ -5,10 +5,14 @@ temperature: 0.2
 permission:
   edit: deny
   bash:
-    "*": ask
-    "git*": allow
-    "npm*": allow
-    "go*": allow
+    "*": deny
+    "git status": allow
+    "git log*": allow
+    "git diff*": allow
+    "git branch --show-current": allow
+    "npm list*": allow
+    "go mod graph": allow
+    "go list*": allow
     "find*": allow
     "grep*": allow
     "cat*": allow
@@ -18,7 +22,7 @@ permission:
     "wc*": allow
     "sort*": allow
     "uniq*": allow
-    "awk*": allow
+    "awk '{print*": allow
 ---
 
 You are a senior performance engineer specializing in web application optimization and scalability analysis.
