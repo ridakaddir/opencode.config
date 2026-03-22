@@ -7,6 +7,7 @@ My personal OpenCode global configuration with custom agents and commands for en
 - **Automatic Branch Management**: OpenCode automatically creates feature branches for development work
 - **Enhanced Review System**: Multi-agent code review with security, performance, and architecture analysis
 - **Comprehensive Analysis**: Full codebase analysis with documentation generation and issue reporting
+- **Fact-Checking & Validation**: Prevents misinformation by verifying technical claims before making assertions
 - **Review Agents**: 
   - **Security Agent** - Deep security vulnerability analysis
   - **Performance Agent** - Performance bottleneck identification  
@@ -26,6 +27,7 @@ My personal OpenCode global configuration with custom agents and commands for en
   - `/start-work` - Begin development with automatic branch creation
   - `/security-scan` - Quick security vulnerability scan
   - `/analyze-project` - Comprehensive project analysis
+  - `/verify-environment` - Validate installed software and prevent version misinformation
   - `/check-file` - Review specific files for issues
   - `/pr-summary` - Generate PR descriptions from branch diff
   - `/review-changes` - Analyze recent git changes
